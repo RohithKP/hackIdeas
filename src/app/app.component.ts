@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,9 +11,16 @@ export class AppComponent {
   title = 'hackIdeas';
   opened: boolean = false;
 
-  constructor(private router: Router) {  }
+  constructor(private router: Router, private authService: AuthService) {  }
 
   hasRoute(route: String) {
     return this.router.url === route;
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.opened = false;
+      this.router.navigate(["/login"])
+    });
   }
 }
