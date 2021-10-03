@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Idea } from 'src/app/core/models/Idea';
+import { IdeaService } from 'src/app/services/idea.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  allIdeas: Idea[] = [];
 
-  constructor() { }
+  constructor(private ideaService: IdeaService) { }
 
   ngOnInit(): void {
+    this.ideaService.getIdeas().subscribe((ideas) => {
+      this.allIdeas = ideas;
+    });
   }
 
 }
