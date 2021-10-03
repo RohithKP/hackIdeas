@@ -1,18 +1,20 @@
 <mat-card class="idea-card">
   <mat-card-header>
     <div mat-card-avatar class="idea-card-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
+    <mat-card-title>{{idea.username}}</mat-card-title>
     <mat-card-subtitle>Dog Breed</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-title>Shiba Inu</mat-card-title>
-  <mat-card-content>
-    <p>This card has divider and indeterminate progress as footer</p>
+  <mat-card-title class="idea-card-title">{{idea.title}}</mat-card-title>
+  <mat-card-content class="idea-description">
+    <p>{{idea.description}}</p>
   </mat-card-content>
   <mat-divider inset></mat-divider>
   <mat-card-actions>
-    <button mat-icon-button class="example-icon" aria-label="Up Vote">
-      <mat-icon color="accent">favorite</mat-icon>
+    <button mat-icon-button aria-label="Up Vote" (click)="onFavoriteToggle()">
+      <mat-icon color="{{  'accent'}}">favorite</mat-icon>
     </button>
+    <span class="spacer">{{idea.likeCount}}</span>
+    <span (click)="onFavoriteToggle()" [style.color]="'blue'"> See More</span>
   </mat-card-actions>
 
 </mat-card>

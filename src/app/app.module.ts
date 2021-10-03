@@ -16,20 +16,23 @@ import { MatCardModule } from '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IdeaCardComponent } from './layout/idea-card/idea-card.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './services/auth.guard';
+import { LoginComponent } from './layout/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: HomeComponent },
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  { path: 'dashboard', component: HomeComponent, canActivate: [AuthGuard] },
   {
     path: 'user',
     loadChildren: () =>
-      import('./layout/modules/user/user.module').then((m) => m.UserModule),
+      import('./layout/modules/user/user.module').then((m) => m.UserModule), canActivate: [AuthGuard]
   },
+  { path: 'login', component: LoginComponent },
   { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, IdeaCardComponent],
+  declarations: [AppComponent, HomeComponent, IdeaCardComponent, LoginComponent],
   imports: [
     HttpClientModule,
     BrowserModule,

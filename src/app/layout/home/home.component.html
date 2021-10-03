@@ -1,4 +1,4 @@
 <div class="masonry">
-  <app-idea-card *ngFor="let idea of allIdeas" class="item"></app-idea-card>
+  <app-idea-card *ngFor="let idea of allIdeas" class="item" [idea]="idea" (favoriteClick)="onFavoriteClick($event, idea)"></app-idea-card>
 </div>
 

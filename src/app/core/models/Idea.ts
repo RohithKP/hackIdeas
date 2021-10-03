@@ -4,4 +4,6 @@ export interface Idea {
   username: String;
   title: String;
   description: String;
+  likeCount: Number;
+  createdDate: String;
 }

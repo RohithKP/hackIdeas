@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Idea } from '../core/models/Idea';
 
 @Injectable({
@@ -13,5 +13,10 @@ export class IdeaService {
 
   getIdeas(): Observable<Idea[]> {
     return this.http.get<Idea[]>(this.apiUrl);
+  }
+
+  updateFavorite(): Observable<Idea[]> {
+    const apiUrl = 'http://localhost:3000/users/11';
+    return this.http.put<Idea[]>(apiUrl, { "favorites": [3] });
   }
 }

@@ -18,4 +18,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  onFavoriteClick(id: Number, idea:any) {
+    this.ideaService.updateFavorite().subscribe(() => {
+      console.log('succss!')
+    });
+  }
 }
