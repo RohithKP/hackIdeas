@@ -18,6 +18,10 @@ import { IdeaCardComponent } from './layout/idea-card/idea-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './services/auth.guard';
 import { LoginComponent } from './layout/login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from  '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -37,12 +41,16 @@ const routes: Routes = [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     SharedModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(routes),
   ],

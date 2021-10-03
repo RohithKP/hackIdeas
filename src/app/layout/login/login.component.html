@@ -1,1 +1,20 @@
-<p>login works!</p>
+<mat-card class="login-form">
+  <mat-form-field appearance="fill">
+    <mat-label>Enter your name</mat-label>
+    <input matInput [(ngModel)]="name" #nameRef="ngModel" maxlength="10" placeholder="Ex. Nougat" required>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Select Employee Id</mat-label>
+    <mat-select required [(ngModel)]="empId" #empIdRef="ngModel">
+      <mat-option value="11">11</mat-option>
+      <mat-option value="22">22</mat-option>
+      <mat-option value="33">33</mat-option>
+      <mat-option value="44">44</mat-option>
+      <mat-option value="55">55</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" [disabled]="nameRef.errors?.required || empIdRef.errors?.required"
+    (click)="login()">Primary</button>
+</mat-card>

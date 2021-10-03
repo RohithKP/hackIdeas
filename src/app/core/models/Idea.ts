@@ -7,3 +7,11 @@ export interface Idea {
   likeCount: Number;
   createdDate: String;
 }
+
+export interface User {
+  id: Number;
+  name: String;
+  username: String;
+  email: String;
+  favorites: Array<Number>;
+}
