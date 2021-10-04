@@ -1,4 +1,6 @@
+import { UserService } from './../../../services/user.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/core/models/Idea';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-
-  constructor() { }
+  userData: User;
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUserDetails().subscribe((data) => {
+      this.userData = data;
+    });
   }
 
 }

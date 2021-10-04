@@ -13,6 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'hackIdeas';
   opened: boolean = false;
   userSub: Subscription;
+  loggedInUserId: number;
 
   constructor(
     private router: Router,
@@ -21,8 +22,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    const loggedInUserId = localStorage.getItem('loggedIn');
-    if (loggedInUserId) {
+    this.loggedInUserId = +localStorage.getItem('loggedIn');
+    if (this.loggedInUserId) {
       this.userSub = this.userService.getUserDetails().subscribe();
     }
   }
