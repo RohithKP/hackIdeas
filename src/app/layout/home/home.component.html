@@ -1,4 +1,7 @@
 <div class="masonry">
   <app-idea-card *ngFor="let idea of allIdeas" class="item" [idea]="idea" (favoriteClick)="onFavoriteClick($event, idea)"></app-idea-card>
 </div>
+<button mat-fab color="primary" class="add-idea-icon" aria-label="Create new Idea" (click)="openDialog()">
+  <mat-icon>library_add</mat-icon>
+</button>
 

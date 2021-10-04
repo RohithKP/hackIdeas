@@ -2,8 +2,8 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { Idea } from 'src/app/core/models/Idea';
 import { IdeaService } from 'src/app/services/idea.service';
-import { tap } from 'rxjs/operators';
-import { forkJoin } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { AddIdeaComponent } from '../modals/add-idea/add-idea.component';
 
 @Component({
   selector: 'app-home',
@@ -15,31 +15,39 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private ideaService: IdeaService,
-    private userService: UserService
+    private userService: UserService,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
-    forkJoin([
-      this.userService.getUserDetails(),
-      this.ideaService.getIdeas(),
-    ]).subscribe(
-      ([user, ideas]) => {
-        this.allIdeas = ideas.map(idea => {
-          idea.isFavorite = user.favorites.indexOf(idea.id) > -1;
-          return idea;
-        })
-      },
-      (error) => {
-        console.log('Data fetch error', error);
+    this.ideaService.ideas.subscribe((ideas) => {
+      if (ideas.length) {
+        this.userService.getUserDetails().subscribe((user) => {
+          this.allIdeas = ideas.map((idea) => {
+            idea.isFavorite = user.favorites.indexOf(idea.id) > -1;
+            return idea;
+          });
+        });
       }
-    );
+    });
   }
 
   onFavoriteClick(event: any, idea: any) {
     this.userService
       .updateFavorite(event.id, event.isFavorite)
       .subscribe(() => {
-        console.log('succss!');
+        console.log('Added to favorites!');
       });
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddIdeaComponent, {
+      width: '250px',
+      data: { name: 'test', animal: 'city' },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+    });
   }
 }

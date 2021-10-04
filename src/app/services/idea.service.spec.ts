@@ -19,11 +19,11 @@ describe('IdeaService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('#getData should use GET to retrieve data', () => {
-    service.getIdeas().subscribe();
+  // it('#getData should use GET to retrieve data', () => {
+  //   service.getIdeas().subscribe();
 
-    const testRequest = httpTestingController.expectOne('http://localhost:3000/ideas');
+  //   const testRequest = httpTestingController.expectOne('http://localhost:3000/ideas');
 
-    expect(testRequest.request.method).toEqual('GET');
-  });
+  //   expect(testRequest.request.method).toEqual('GET');
+  // });
 });

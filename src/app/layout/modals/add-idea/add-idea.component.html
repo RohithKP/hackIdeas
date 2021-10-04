@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>You are from {{data.name}}</h1>
+
+<div mat-dialog-content>
+
+
+
+</div>
+
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">a</button>
+    <button mat-button [mat-dialog-close]="data.city" cdkFocusInitial>b</button>
+</div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Idea } from '../core/models/Idea';
 
 @Injectable({
@@ -8,10 +8,17 @@ import { Idea } from '../core/models/Idea';
 })
 export class IdeaService {
   private apiUrl = 'http://localhost:3000/ideas';
+  private _ideas: BehaviorSubject<Array<Idea>> = new BehaviorSubject([]);
 
-  constructor(private http: HttpClient) {}
+  public readonly ideas: Observable<Array<Idea>> = this._ideas.asObservable();
 
-  getIdeas(): Observable<Idea[]> {
-    return this.http.get<Idea[]>(this.apiUrl);
+  constructor(private http: HttpClient) {
+    this.getIdeas();
+  }
+
+  getIdeas() {
+    return this.http.get<Idea[]>(this.apiUrl).subscribe((data) => {
+      this._ideas.next(data);
+    });
   }
 }

@@ -16,6 +16,8 @@ export class IdeaCardComponent implements OnInit {
 
   onFavoriteToggle() {
     this.idea.isFavorite = !this.idea.isFavorite;
+    // todo: count should be updated in db as well
+    this.idea.likeCount = this.idea.isFavorite ? +this.idea.likeCount + 1:  +this.idea.likeCount - 1;
     this.favoriteClick.emit({ id: this.idea.id, isFavorite: this.idea.isFavorite });
   }
 }
