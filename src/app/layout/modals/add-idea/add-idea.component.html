@@ -7,17 +7,24 @@
       <mat-hint align="end">{{titleInput.value?.length || 0}}/50</mat-hint>
       <mat-error *ngIf="ideaForm.controls.title.touched && ideaForm.controls.title.invalid">
         <span *ngIf="ideaForm.controls.title.errors.required">This field is mandatory.</span>
-        <span *ngIf="ideaForm.controls.title.errors.pattern">This field is invalid.</span>
       </mat-error>
     </mat-form-field>
     <mat-form-field class="form-field" appearance="outline">
-      <mat-label> Description
-      </mat-label>
+      <mat-label> Description </mat-label>
       <textarea  matInput formControlName="description"></textarea>
       <mat-error *ngIf="ideaForm.controls.description.touched && ideaForm.controls.description.invalid">
         <span *ngIf="ideaForm.controls.description.errors.required">This field is mandatory.</span>
       </mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!ideaForm.valid">Log In</button>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Select Tags </mat-label>
+      <mat-chip-list  [selectable]="true" [multiple]="true">
+        <mat-chip *ngFor="let tag of allTags" color="primary" [selected]="tag.selected" (click)="toggleSelection(tag)">
+          {{tag.label}}
+        </mat-chip>
+      </mat-chip-list>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!ideaForm.valid">Submit</button>
   </div>
 </form>

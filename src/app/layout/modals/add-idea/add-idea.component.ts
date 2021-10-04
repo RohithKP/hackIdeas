@@ -5,6 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/app/core/models/Idea';
 
+interface Tag {
+  label: string;
+  selected: boolean;
+}
+
 @Component({
   selector: 'app-add-idea',
   templateUrl: './add-idea.component.html',
@@ -13,6 +18,28 @@ import { User } from 'src/app/core/models/Idea';
 export class AddIdeaComponent implements OnInit {
   ideaForm: FormGroup;
   userData: User;
+  allTags: Array<Tag> = [
+    {
+      label: 'feature',
+      selected: false,
+    },
+    {
+      label: 'tech',
+      selected: false,
+    },
+    {
+      label: 'aot',
+      selected: false,
+    },
+    {
+      label: 'ecom',
+      selected: false,
+    },
+    {
+      label: 'web',
+      selected: false,
+    },
+  ];
 
   constructor(
     public dialogRef: MatDialogRef<AddIdeaComponent>,
@@ -47,7 +74,9 @@ export class AddIdeaComponent implements OnInit {
         createdOn: new Date().toISOString(),
         title: this.ideaForm.get('title').value,
         description: this.ideaForm.get('description').value,
-        tags: []
+        tags: this.allTags
+          .filter((tag) => tag.selected)
+          .map((tag) => tag.label),
       })
       .subscribe(() => {
         console.log('Idea posted successfully');
@@ -57,5 +86,9 @@ export class AddIdeaComponent implements OnInit {
 
   close(): void {
     this.dialogRef.close({});
+  }
+
+  toggleSelection(tag: Tag) {
+    tag.selected = !tag.selected;
   }
 }
