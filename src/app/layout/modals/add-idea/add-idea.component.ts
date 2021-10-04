@@ -44,9 +44,10 @@ export class AddIdeaComponent implements OnInit {
         userId: this.userData.id,
         username: this.userData.name,
         likeCount: 0,
-        createdDate: new Date().toISOString(),
+        createdOn: new Date().toISOString(),
         title: this.ideaForm.get('title').value,
         description: this.ideaForm.get('description').value,
+        tags: []
       })
       .subscribe(() => {
         console.log('Idea posted successfully');

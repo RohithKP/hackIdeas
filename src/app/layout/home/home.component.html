@@ -1,3 +1,11 @@
+<mat-toolbar class="action-bar">
+  <button mat-mini-fab color="primary" title="sort by date" aria-label="Sort Ideas by date" (click)="sortByDate()">
+    <mat-icon>sort</mat-icon>
+  </button>
+  <!-- <button mat-mini-fab color="primary" aria-label="Create new Idea" (click)="openDialog()">
+    <mat-icon>library_add</mat-icon>
+  </button> -->
+</mat-toolbar>
 <div class="masonry">
   <app-idea-card *ngFor="let idea of allIdeas" class="item" [idea]="idea" (favoriteClick)="onFavoriteClick($event, idea)"></app-idea-card>
 </div>

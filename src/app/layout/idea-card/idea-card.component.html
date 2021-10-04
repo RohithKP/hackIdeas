@@ -2,12 +2,19 @@
   <mat-card-header>
     <div mat-card-avatar class="idea-card-header-image"></div>
     <mat-card-title>{{idea.username}}</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    <mat-card-subtitle>{{idea.createdOn}}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-title class="idea-card-title">{{idea.title}}</mat-card-title>
   <mat-card-content class="idea-description">
     <p>{{idea.description}}</p>
   </mat-card-content>
+  <mat-chip-list>
+    <div class="tags-list">
+      <mat-chip *ngFor="let tag of idea.tags">
+        {{tag}}
+      </mat-chip>
+    </div>
+  </mat-chip-list>
   <mat-divider inset></mat-divider>
   <mat-card-actions>
     <button mat-icon-button aria-label="Up Vote" (click)="onFavoriteToggle()">

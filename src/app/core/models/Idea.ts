@@ -1,18 +1,19 @@
 export interface Idea {
-  id: Number;
-  userId: Number;
-  username: String;
-  title: String;
-  description: String;
-  likeCount: Number;
-  createdDate: String;
-  isFavorite?: Boolean;
+  id: number;
+  userId: number;
+  username: string;
+  title: string;
+  description: string;
+  likeCount: number;
+  createdOn:string;
+  isFavorite?: boolean;
+  tags: Array<string>
 }
 
 export interface User {
-  id: Number;
-  name: String;
-  username: String;
-  email: String;
-  favorites: Array<Number>;
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  favorites: Array<number>;
 }

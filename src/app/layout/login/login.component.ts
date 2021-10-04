@@ -10,8 +10,8 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  name: String;
-  empId: Number;
+  name: string;
+  empId: number;
   userSub: Subscription;
 
   constructor(private userService: UserService, private router: Router) {}

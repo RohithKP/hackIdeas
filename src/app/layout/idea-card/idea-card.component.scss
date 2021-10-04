@@ -1,5 +1,8 @@
 .idea-card {
-  max-width: 300px;
+  width: 350px;
+  .mat-card-content {
+    min-height: 67px;
+  }
 }
 
 .idea-card-header-image {
@@ -23,4 +26,8 @@
 .mat-card-actions {
   display: flex;
   align-items: center;
+}
+
+.tags-list {
+  padding-bottom: 10px;
 }

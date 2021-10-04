@@ -4,6 +4,7 @@ import { Idea } from 'src/app/core/models/Idea';
 import { IdeaService } from 'src/app/services/idea.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddIdeaComponent } from '../modals/add-idea/add-idea.component';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ import { AddIdeaComponent } from '../modals/add-idea/add-idea.component';
 })
 export class HomeComponent implements OnInit {
   allIdeas: Idea[] = [];
+  sortOder: string;
 
   constructor(
     private ideaService: IdeaService,
@@ -25,6 +27,7 @@ export class HomeComponent implements OnInit {
         this.userService.getUserDetails().subscribe((user) => {
           this.allIdeas = ideas.map((idea) => {
             idea.isFavorite = user.favorites.indexOf(idea.id) > -1;
+            idea.createdOn = formatDate(idea.createdOn, 'medium', 'en')
             return idea;
           });
         });
@@ -49,5 +52,14 @@ export class HomeComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed', result);
     });
+  }
+
+  sortByDate() {
+    this.sortOder = this.sortOder === 'asc' ? 'desc': 'asc';
+    if(this.sortOder === 'desc') {
+      this.allIdeas.sort((a, b) => (new Date(b.createdOn)).getTime() -( new Date(a.createdOn)).getTime());
+    } else {
+      this.allIdeas.sort((a, b) => (new Date(a.createdOn)).getTime() -( new Date(b.createdOn)).getTime());
+    }
   }
 }

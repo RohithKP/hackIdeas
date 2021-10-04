@@ -14,7 +14,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {}
 
-  login(id: String | Number): Observable<User> {
+  login(id: number): Observable<User> {
     return this.http
       .get<User>(`${this.apiUrl}/${id}`)
       .pipe(
@@ -25,12 +25,12 @@ export class UserService {
   // Logic below are mainly for mocking the server update operations
   getUserDetails(): Observable<User> {
     if(!this.userData && localStorage.getItem('loggedIn')) {
-      return this.login(localStorage.getItem('loggedIn'));
+      return this.login(+localStorage.getItem('loggedIn'));
     }
     return of(this.userData);
   }
 
-  updateFavorite(ideaId: Number, isFavorite: Boolean) {
+  updateFavorite(ideaId: number, isFavorite: boolean) {
       const apiUrl = `${this.apiUrl}/${this.userData.id}`;
       if(isFavorite) {
         this.userData.favorites.push(ideaId);
