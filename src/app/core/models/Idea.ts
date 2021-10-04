@@ -1,11 +1,12 @@
 export interface Idea {
-  id: String;
+  id: Number;
   userId: String;
   username: String;
   title: String;
   description: String;
   likeCount: Number;
   createdDate: String;
+  isFavorite?: Boolean;
 }
 
 export interface User {

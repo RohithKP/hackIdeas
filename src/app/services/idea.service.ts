@@ -14,9 +14,4 @@ export class IdeaService {
   getIdeas(): Observable<Idea[]> {
     return this.http.get<Idea[]>(this.apiUrl);
   }
-
-  updateFavorite(): Observable<Idea[]> {
-    const apiUrl = 'http://localhost:3000/users/11';
-    return this.http.put<Idea[]>(apiUrl, { "favorites": [3] });
-  }
 }

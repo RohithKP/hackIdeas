@@ -46,98 +46,100 @@
       "description": "The knives seemed to move of their own accord, gliding with a hand on his chest. No light but the muted purring of the bright void beyond the chain link. The two surviving Founders of Zion were old men, old with the movement of the train, their high heels like polished hooves against the gray metal of the room where Case waited. They were dropping, losing altitude in a canyon of rainbow foliage, a lurid communal mural that completely covered the hull of the console in faded pinks and yellows. The Sprawl was a long strange way home over the black water and the drifting shoals of waste. They floated in the center of his closed left eyelid. That was Wintermute, manipulating the lock the way it had manipulated the drone micro and the drifting shoals of waste. Its hands were holograms that altered to match the convolutions of the console in faded pinks and yellows. They floated in the dark, curled in his sleep, and wake alone in the puppet place had been a subunit of Freeside’s security system. The two surviving Founders of Zion were old men, old with the movement of the train, their high heels like polished hooves against the gray metal of the deck sting his palm as he made his way down Shiga from the sushi stall he cradled it in his jacket pocket."
     }
   ],
-  "users": [ {
-        "id": 11,
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "phone": "1-770-736-8031 x56442",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 22,
-        "name": "Ervin Howell",
-        "username": "Antonette",
-        "email": "Shanna@melissa.tv",
-        "phone": "010-692-6593 x09125",
-        "favorites": [
-          2
-        ]
-      },
-      {
-        "id": 33,
-        "name": "Clementine Bauch",
-        "username": "Samantha",
-        "email": "Nathan@yesenia.net",
-        "phone": "1-463-123-4447",
-        "favorites": [
-          3
-        ]
-      },
-      {
-        "id": 44,
-        "name": "Patricia Lebsack",
-        "username": "Karianne",
-        "email": "Julianne.OConner@kory.org",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 55,
-        "name": "Chelsey Dietrich",
-        "username": "Kamren",
-        "email": "Lucio_Hettinger@annie.ca",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 66,
-        "name": "Mrs. Dennis Schulist",
-        "username": "Leopoldo_Corkery",
-        "email": "Karley_Dach@jasper.info",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 77,
-        "name": "Kurtis Weissnat",
-        "username": "Elwyn.Skiles",
-        "email": "Telly.Hoeger@billy.biz",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 88,
-        "name": "Nicholas Runolfsdottir V",
-        "username": "Maxime_Nienow",
-        "email": "Sherwood@rosamond.me",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 99,
-        "name": "Glenna Reichert",
-        "username": "Delphine",
-        "email": "Chaim_McDermott@dana.io",
-        "favorites": [
-          1
-        ]
-      },
-      {
-        "id": 101,
-        "name": "Clementina DuBuque",
-        "username": "Moriah.Stanton",
-        "email": "Rey.Padberg@karina.biz",
-        "favorites": [
-          1
-        ]
-      }
+  "users": [
+    {
+      "id": 11,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "phone": "1-770-736-8031 x56442",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 22,
+      "name": "Ervin Howell",
+      "username": "Antonette",
+      "email": "Shanna@melissa.tv",
+      "phone": "010-692-6593 x09125",
+      "favorites": [
+        2
+      ]
+    },
+    {
+      "id": 33,
+      "name": "Clementine Bauch",
+      "username": "Samantha",
+      "email": "Nathan@yesenia.net",
+      "phone": "1-463-123-4447",
+      "favorites": [
+        3,
+        1
+      ]
+    },
+    {
+      "id": 44,
+      "name": "Patricia Lebsack",
+      "username": "Karianne",
+      "email": "Julianne.OConner@kory.org",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 55,
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "email": "Lucio_Hettinger@annie.ca",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 66,
+      "name": "Mrs. Dennis Schulist",
+      "username": "Leopoldo_Corkery",
+      "email": "Karley_Dach@jasper.info",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 77,
+      "name": "Kurtis Weissnat",
+      "username": "Elwyn.Skiles",
+      "email": "Telly.Hoeger@billy.biz",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 88,
+      "name": "Nicholas Runolfsdottir V",
+      "username": "Maxime_Nienow",
+      "email": "Sherwood@rosamond.me",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 99,
+      "name": "Glenna Reichert",
+      "username": "Delphine",
+      "email": "Chaim_McDermott@dana.io",
+      "favorites": [
+        1
+      ]
+    },
+    {
+      "id": 101,
+      "name": "Clementina DuBuque",
+      "username": "Moriah.Stanton",
+      "email": "Rey.Padberg@karina.biz",
+      "favorites": [
+        1
+      ]
+    }
   ]
 }

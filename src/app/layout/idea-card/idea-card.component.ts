@@ -4,18 +4,18 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 @Component({
   selector: 'app-idea-card',
   templateUrl: './idea-card.component.html',
-  styleUrls: ['./idea-card.component.scss']
+  styleUrls: ['./idea-card.component.scss'],
 })
 export class IdeaCardComponent implements OnInit {
   @Input() public idea: Idea;
   @Output() favoriteClick: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onFavoriteToggle() {
-    this.favoriteClick.emit(this.idea.id);
+    this.idea.isFavorite = !this.idea.isFavorite;
+    this.favoriteClick.emit({ id: this.idea.id, isFavorite: this.idea.isFavorite });
   }
 }

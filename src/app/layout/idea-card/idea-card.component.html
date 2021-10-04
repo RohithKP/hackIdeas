@@ -11,7 +11,7 @@
   <mat-divider inset></mat-divider>
   <mat-card-actions>
     <button mat-icon-button aria-label="Up Vote" (click)="onFavoriteToggle()">
-      <mat-icon color="{{  'accent'}}">favorite</mat-icon>
+      <mat-icon color="{{ idea.isFavorite ? 'accent' : 'grey'}}">favorite</mat-icon>
     </button>
     <span class="spacer">{{idea.likeCount}}</span>
     <span (click)="onFavoriteToggle()" [style.color]="'blue'"> See More</span>
