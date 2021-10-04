@@ -42,8 +42,8 @@ export class HomeComponent implements OnInit {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(AddIdeaComponent, {
-      width: '250px',
-      data: { name: 'test', animal: 'city' },
+      width: '400px',
+      data: { },
     });
 
     dialogRef.afterClosed().subscribe((result) => {

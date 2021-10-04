@@ -1,6 +1,6 @@
 export interface Idea {
   id: Number;
-  userId: String;
+  userId: Number;
   username: String;
   title: String;
   description: String;

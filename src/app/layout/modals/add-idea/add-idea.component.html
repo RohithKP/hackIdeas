@@ -1,12 +1,23 @@
-<h1 mat-dialog-title>You are from {{data.name}}</h1>
-
-<div mat-dialog-content>
-
-
-
-</div>
-
-<div mat-dialog-actions>
-    <button mat-button (click)="onNoClick()">a</button>
-    <button mat-button [mat-dialog-close]="data.city" cdkFocusInitial>b</button>
-</div>
+<form [formGroup]="ideaForm" (submit)="submit()" class="ideaForm">
+  <h1 mat-dialog-title>Create a new Idea!</h1>
+  <div mat-dialog-content class="form-container">
+    <mat-form-field class="form-field" appearance="outline" hintLabel="Max 50 characters">
+      <mat-label> Title </mat-label>
+      <input matInput #titleInput formControlName="title" required maxlength="50">
+      <mat-hint align="end">{{titleInput.value?.length || 0}}/50</mat-hint>
+      <mat-error *ngIf="ideaForm.controls.title.touched && ideaForm.controls.title.invalid">
+        <span *ngIf="ideaForm.controls.title.errors.required">This field is mandatory.</span>
+        <span *ngIf="ideaForm.controls.title.errors.pattern">This field is invalid.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="form-field" appearance="outline">
+      <mat-label> Description
+      </mat-label>
+      <textarea  matInput formControlName="description"></textarea>
+      <mat-error *ngIf="ideaForm.controls.description.touched && ideaForm.controls.description.invalid">
+        <span *ngIf="ideaForm.controls.description.errors.required">This field is mandatory.</span>
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!ideaForm.valid">Log In</button>
+  </div>
+</form>
