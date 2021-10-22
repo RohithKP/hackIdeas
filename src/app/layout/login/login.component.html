@@ -7,11 +7,7 @@
   <mat-form-field appearance="fill">
     <mat-label>Select Employee Id</mat-label>
     <mat-select required [(ngModel)]="empId" #empIdRef="ngModel">
-      <mat-option value="11">11</mat-option>
-      <mat-option value="22">22</mat-option>
-      <mat-option value="33">33</mat-option>
-      <mat-option value="44">44</mat-option>
-      <mat-option value="55">55</mat-option>
+      <mat-option *ngFor="let id of userId$ | async" value="{{id}}">{{id}}</mat-option>
     </mat-select>
   </mat-form-field>
 

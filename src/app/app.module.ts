@@ -24,8 +24,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatChipsModule } from '@angular/material/chips';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenuModule} from '@angular/material/menu';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddIdeaComponent } from './layout/modals/add-idea/add-idea.component';
+import { IdeaDetailComponent } from './layout/modules/idea-detail/idea-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -47,6 +49,7 @@ const routes: Routes = [
     IdeaCardComponent,
     LoginComponent,
     AddIdeaComponent,
+    IdeaDetailComponent
   ],
   imports: [
     HttpClientModule,
@@ -67,6 +70,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     MatChipsModule,
     MatToolbarModule,
+    MatMenuModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],

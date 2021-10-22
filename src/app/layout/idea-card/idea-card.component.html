@@ -21,7 +21,7 @@
       <mat-icon color="{{ idea.isFavorite ? 'accent' : 'grey'}}">favorite</mat-icon>
     </button>
     <span class="spacer">{{idea.likeCount}}</span>
-    <span (click)="onFavoriteToggle()" [style.color]="'blue'"> See More</span>
+    <span (click)="onFavoriteToggle()" [style.color]="'blue'" (click)="showDetailsModal(idea.title)"> See More</span>
   </mat-card-actions>
 
 </mat-card>

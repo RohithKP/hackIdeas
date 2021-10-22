@@ -2,7 +2,7 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/models/Idea';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
   empId: number;
   userSub: Subscription;
 
-  constructor(private userService: UserService, private router: Router) {}
+  public userId$: Observable<any>;
+
+  constructor(private userService: UserService, private router: Router) {
+    this.userId$ = this.userService._userIds;
+  }
 
   ngOnInit(): void {}
 

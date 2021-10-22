@@ -13,7 +13,6 @@ import { formatDate } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
   allIdeas: Idea[] = [];
-  sortOder: string;
 
   constructor(
     private ideaService: IdeaService,
@@ -54,12 +53,19 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  sortByDate() {
-    this.sortOder = this.sortOder === 'asc' ? 'desc': 'asc';
-    if(this.sortOder === 'desc') {
+  sortByDate(order = 'asc') {
+    if(order === 'desc') {
       this.allIdeas.sort((a, b) => (new Date(b.createdOn)).getTime() -( new Date(a.createdOn)).getTime());
     } else {
       this.allIdeas.sort((a, b) => (new Date(a.createdOn)).getTime() -( new Date(b.createdOn)).getTime());
+    }
+  }
+
+  sortByLikes(order = 'asc') {
+    if(order === 'asc') {
+      this.allIdeas.sort((a,b) => a.likeCount - b.likeCount);
+    } else {
+      this.allIdeas.sort((a,b) => b.likeCount - a.likeCount);
     }
   }
 }

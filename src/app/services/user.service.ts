@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../core/models/Idea';
 import { tap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -12,7 +12,12 @@ export class UserService {
   private apiUrl = 'http://localhost:3000/users';
   private userData: User;
 
-  constructor(private http: HttpClient) {}
+  private userIds: BehaviorSubject<Array<number>> = new BehaviorSubject([]);
+  public readonly _userIds = this.userIds.asObservable();
+
+  constructor(private http: HttpClient) {
+    this.getAllUserIds();
+  }
 
   login(id: number): Observable<User> {
     return this.http
@@ -38,5 +43,12 @@ export class UserService {
         this.userData.favorites = this.userData.favorites.filter((id) => id !== ideaId);
       }
       return this.http.put(apiUrl, this.userData);
+  }
+
+  getAllUserIds() {
+    this.http.get<Array<User>>(this.apiUrl).subscribe((users) => {
+      const ids = users.map(user => user.id);
+      this.userIds.next(ids);
+    })
   }
 }
